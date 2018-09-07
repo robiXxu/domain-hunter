@@ -20,8 +20,6 @@ const checkDomain = (domain) => {
           wait: true,
           timeout: 9999
         });
-
-        if( typeof intervals[domain] !== "undefined" ) clearInterval(intervals[domain]);
         
       } else {
         console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.red(domainStatus)}`);
