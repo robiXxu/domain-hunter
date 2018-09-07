@@ -21,7 +21,7 @@ const checkDomain = (domain) => {
   
         notifier.notify({
           title: 'Domain Hunter',
-          message: `${domain} is available!!!`,
+          message: `${domain} is available! Buy now!`,
           icon: path.join( __dirname, 'dhunter.png'),
           sound: true,
           wait: true,

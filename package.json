@@ -6,7 +6,7 @@
   "author": "Schiriac Robert <schiriac.robert@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "run": "node app",
+    "app": "node app",
     "dev": "nodemon app"
   },
   "dependencies": {
