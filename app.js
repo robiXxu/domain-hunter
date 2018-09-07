@@ -1,4 +1,4 @@
-const whois = require('whois-json');
+const whois = require('whois-to-json');
 const chalk = require('chalk');
 const notifier = require('node-notifier');
 const path = require('path');
@@ -7,7 +7,7 @@ const domains = require(path.join(__dirname, config.domainsFile));
 
 const checkDomain = (domain) => {
   whois(domain, config.whois)
-    .then(response => response[0].data.domainStatus)
+    .then(response => response['DomainStatus'])
     .then((domainStatus) => {
       if( domainStatus.toLowerCase() === "ok" ) {
         console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.green(domainStatus)}`);
