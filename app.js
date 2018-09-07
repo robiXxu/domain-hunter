@@ -25,15 +25,13 @@ const checkDomain = (domain) => {
         
       } else {
         console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.red(domainStatus)}`);
+        checkDomain(domain);
       }
     })
     .catch((error) => {
       console.error(`[${chalk.bold.red("ERROR")}]: ${error}`);
+      checkDomain(domain);
     });
 };
 
-const intervals = {};
-
-domains.forEach(domain => {
-  intervals[domain] = setInterval(checkDomain, config.checkDelay, domain);
-});
+domains.forEach(domain => checkDomain(domain));

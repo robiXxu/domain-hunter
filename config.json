@@ -3,6 +3,5 @@
     "follow": 3,
     "verbose": true
   },
-  "domainsFile": "domains.json",
-  "checkDelay": "1000"
+  "domainsFile": "domains.json"
 }

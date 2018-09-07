@@ -19,6 +19,10 @@ git clone git@github.com:robiXxu/domain-hunter.git
 ```
 pm2 start app.js
 ```
+* Monitoring
+```
+pm2 monit
+```
 
 ---
 
