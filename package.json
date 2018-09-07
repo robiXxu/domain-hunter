@@ -4,5 +4,17 @@
   "main": "app.js",
   "repository": "git@github.com:robiXxu/domain-hunter.git",
   "author": "Schiriac Robert <schiriac.robert@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "run": "node app",
+    "dev": "nodemon app"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "node-notifier": "^5.2.1",
+    "whois-json": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }
