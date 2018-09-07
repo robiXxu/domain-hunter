@@ -2,22 +2,15 @@ const whois = require('whois-json');
 const chalk = require('chalk');
 const notifier = require('node-notifier');
 const path = require('path');
-
-
-//TODO: from a config... 
-const options = { 
-  follow: 3,
-  verbose: true
-};
-
-const delay = 2000;
+const config = require(path.join(__dirname, 'config.json'));
+const domains = require(path.join(__dirname, config.domainsFile));
 
 const checkDomain = (domain) => {
-  return whois(domain, options)
+  whois(domain, config.whois)
     .then(response => response[0].data.domainStatus)
     .then((domainStatus) => {
       if( domainStatus.toLowerCase() === "ok" ) {
-        console.log(`[${domain}] : ${chalk.bold.green(domainStatus)}`);
+        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.green(domainStatus)}`);
   
         notifier.notify({
           title: 'Domain Hunter',
@@ -28,14 +21,19 @@ const checkDomain = (domain) => {
           timeout: 9999
         });
 
-        if( typeof interval !== "undefined" ) clearInterval(interval);
+        if( typeof intervals[domain] !== "undefined" ) clearInterval(intervals[domain]);
         
       } else {
-        console.log(`[${domain}] : ${chalk.bold.green(domainStatus)}`);
+        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.red(domainStatus)}`);
       }
+    })
+    .catch((error) => {
+      console.error(`[${chalk.bold.red("ERROR")}]: ${error}`);
     });
 };
 
-//TODO: load from file and allow multiple domain check 
-const domain = 'saveni.ro';
-const interval = setInterval(checkDomain, delay, domain);
+const intervals = {};
+
+domains.forEach(domain => {
+  intervals[domain] = setInterval(checkDomain, config.checkDelay, domain);
+});
