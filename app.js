@@ -15,8 +15,9 @@ const envVars = [
 ];
 
 config.notifyByEmail =
-  envVars.filter(k => process.env[k] && process.env[k].trim().length > 0)
-    .length === envVars.length;
+  envVars.filter(
+    k => process.env[k] && process.env[k].trim().length > 0
+  ).length === envVars.length;
 
 const notify = domain => {
   if (config.notifyByEmail) {
@@ -34,7 +35,9 @@ const notify = domain => {
       },
       (err, res) => {
         err
-          ? console.error(chalk.bold.red(`Error while sending email: ${err}`))
+          ? console.error(
+              chalk.bold.red(`Error while sending email: ${err}`)
+            )
           : console.log(chalk.bold.blue('Email sent successfully!'));
       }
     );
@@ -53,18 +56,24 @@ const checkDomain = domain => {
     .then(domainStatus => {
       if (typeof domainStatus === 'undefined') {
         console.log(
-          `[${chalk.bold.blue(domain)}] : ${chalk.bold.green('AVAILABLE')}`
+          `[${chalk.bold.blue(domain)}] : ${chalk.bold.green(
+            'AVAILABLE'
+          )}`
         );
         notify(domain);
       } else {
         console.log(
-          `[${chalk.bold.blue(domain)}] : ${chalk.bold.gray(domainStatus)}`
+          `[${chalk.bold.blue(domain)}] : ${chalk.bold.gray(
+            domainStatus
+          )}`
         );
         checkDomain(domain);
       }
     })
     .catch(error => {
-      console.error(`[${chalk.bold.red('ERROR')}]: ${JSON.stringify(error)}`);
+      console.error(
+        `[${chalk.bold.red('ERROR')}]: ${JSON.stringify(error)}`
+      );
       checkDomain(domain);
     });
 };
