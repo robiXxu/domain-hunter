@@ -69,3 +69,7 @@ yarn.lock
 
 # dotenv
 .env
+
+# .DS shit
+.DS_Store
+.DS_STORE
