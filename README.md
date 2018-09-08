@@ -91,7 +91,7 @@ npm run dev
 ---
 
 ## Dependencies
-- whois - on unix system is already installed for Windows [follow these instructions](https://www.npmjs.com/package/whois-to-json#dependencies).
+- [whois](https://en.wikipedia.org/wiki/WHOIS) - on most unix systems should be installed ( you can check by running whois in a terminal ) for Windows [follow these instructions](https://www.npmjs.com/package/whois-to-json#dependencies).
 
 In package.json:
 - [whois-to-json](https://www.npmjs.com/package/whois-to-json)
