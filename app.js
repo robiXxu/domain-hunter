@@ -3,6 +3,7 @@ const whois = require('whois-to-json');
 const chalk = require('chalk');
 const notifier = require('node-notifier');
 const path = require('path');
+
 const config = require(path.join(__dirname, 'config.json'));
 const domains = require(path.join(__dirname, config.domainsFile));
 const sendMail = require('gmail-send')(config.email);
@@ -23,9 +24,9 @@ const notify = domain => {
 
     sendMail(
       {
-        user: process.env['DOMAIN_HUNTER_EMAIL_USER'],
-        pass: process.env['DOMAIN_HUNTER_EMAIL_PASS'],
-        to: process.env['DOMAIN_HUNTER_EMAIL_TO'],
+        user: process.env.DOMAIN_HUNTER_EMAIL_USER,
+        pass: process.env.DOMAIN_HUNTER_EMAIL_PASS,
+        to: process.env.DOMAIN_HUNTER_EMAIL_TO,
         subject: config.email.subject.replace(wildcard, domain),
         html: config.email.htmlData
           .map(l => l.replace(wildcard, domain))
@@ -34,7 +35,7 @@ const notify = domain => {
       (err, res) => {
         err
           ? console.error(chalk.bold.red(`Error while sending email: ${err}`))
-          : console.log(chalk.bold.blue(`Email sent successfully!`));
+          : console.log(chalk.bold.blue('Email sent successfully!'));
       }
     );
   } else {
@@ -48,7 +49,7 @@ const notify = domain => {
 
 const checkDomain = domain => {
   whois(domain)
-    .then(response => response['DomainStatus'])
+    .then(response => response.DomainStatus)
     .then(domainStatus => {
       if (typeof domainStatus === 'undefined') {
         console.log(
