@@ -1,7 +1,3 @@
 {
-  "whois": {
-    "follow": 3,
-    "verbose": true
-  },
   "domainsFile": "domains.json"
 }

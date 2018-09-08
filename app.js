@@ -6,7 +6,7 @@ const config = require(path.join(__dirname, 'config.json'));
 const domains = require(path.join(__dirname, config.domainsFile));
 
 const checkDomain = (domain) => {
-  whois(domain, config.whois)
+  whois(domain)
     .then(response => response['DomainStatus'])
     .then((domainStatus) => {
       if( domainStatus.toLowerCase() === "ok" ) {
