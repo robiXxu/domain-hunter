@@ -9,20 +9,17 @@ const checkDomain = (domain) => {
   whois(domain)
     .then(response => response['DomainStatus'])
     .then((domainStatus) => {
-      if( domainStatus.toLowerCase() === "ok" ) {
-        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.green(domainStatus)}`);
+      if( typeof domainStatus === "undefined") {
+        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.green('AVAILABLE')}`);
   
         notifier.notify({
-          title: 'Domain Hunter',
+          ...config.notify,
           message: `${domain} is available! Buy now!`,
           icon: path.join( __dirname, 'dhunter.png'),
-          sound: true,
-          wait: true,
-          timeout: 9999
         });
         
       } else {
-        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.red(domainStatus)}`);
+        console.log(`[${chalk.bold.blue(domain)}] : ${chalk.bold.gray(domainStatus)}`);
         checkDomain(domain);
       }
     })

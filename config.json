@@ -1,3 +1,10 @@
 {
+  "notify": {
+    "title": "Domain Hunter",
+    "message": "A domain is available! Check logs",
+    "sound": true,
+    "wait": true,
+    "timeout": 9999
+  },
   "domainsFile": "domains.json"
 }
