@@ -34,7 +34,7 @@ const notify = (domain) => {
     notifier.notify({
       ...config.notify,
       message: `${domain} is available! Buy now!`,
-      icon: path.join( __dirname, 'dhunter.png'),
+      icon: path.join( __dirname, 'assets', 'dhunter.png')
     });
   }
 }
