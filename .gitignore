@@ -66,3 +66,6 @@ yarn.lock
 .code
 .vscode
 .history
+
+# dotenv
+.env

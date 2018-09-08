@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "dotenv": "^6.0.0",
+    "gmail-send": "^1.2.14",
     "node-notifier": "^5.2.1",
-    "whois-to-json": "^1.0.3"
+    "whois-to-json": "^1.0.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

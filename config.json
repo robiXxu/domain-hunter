@@ -6,5 +6,21 @@
     "wait": true,
     "timeout": 9999
   },
+  "email": {
+    "user": "",
+    "pass": "",
+    "to": "",
+    "subject": "[DOMAIN HUNTER] %DOMAIN% is available",
+    "html": "",
+    "htmlData": [
+      "<h2> Domain Hunter </h2>",
+      "<h1> %DOMAIN% is available! </h1>",
+      "<h3> Buy it before someone else does. </h3>",
+      "<a href='https://www.rotld.ro/register-a-new-ro-domain/'>Buy %DOMAIN% on rotld.ro</a>",
+      "<a href='https://www.namecheap.com/myaccount/login.aspx?ReturnUrl=https://www.namecheap.com/domains/registration/results.aspx?domain=%DOMAIN%'> Buy %DOMAIN% on namecheap.com </a>",
+      "<a href='https://sso.godaddy.com/?realm=idp&path=%2Fproducts&app=account&checkAvail=1&tmskey=&domainToCheck=%DOMAIN%'> Buy %DOMAIN% on godaddy.com </a>",
+      "<h4> Powered by <a href='https://github.com/robiXxu/domain-hunter'> domain-hunter </a> </h4>"
+    ]
+  },
   "domainsFile": "domains.json"
 }
