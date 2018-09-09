@@ -12,9 +12,9 @@
 
 ## Demo
 #### Default: System Notification Center
-![](assets/sysNotify.png)
+![](src/assets/sysNotify.png)
 #### Email Notification
-![](assets/emailNotify.png)
+![](src/assets/emailNotify.png)
 
 ---
 
