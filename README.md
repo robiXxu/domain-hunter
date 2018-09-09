@@ -30,9 +30,20 @@ npm install -g pm2
 git clone git@github.com:robiXxu/domain-hunter.git
 ```
 * Navigate to domain-hunter directory
+```
+cd domain-hunter
+```
+* Install dependencies
+```
+npm install 
+```
+* Build
+```
+npm run build
+```
 * Run
 ```
-pm2 start app.js
+pm2 start dist/app.js
 ```
 * Monitoring
 ```
@@ -66,22 +77,17 @@ pm2 monit
 
 ## Up & Running Dev
 * Install [nodejs](https://nodejs.org/en/download/) or [yarn](https://yarnpkg.com/en/docs/install) if you don't have it. 
-* Install [PM2](https://pm2.io/doc/en/runtime/quick-start/)
-```
-npm install -g pm2
-```
 * Clone repo
 ```
 git clone git@github.com:robiXxu/domain-hunter.git
 ```
 * Navigate to domain-hunter directory
+```
+cd domain-hunter
+```
 * Install dependencies
 ```
-npm install
-```
-* Install nodemon globally
-```
-npm install -g nodemon
+npm install 
 ```
 * Run in dev
 ```
@@ -98,6 +104,7 @@ In package.json:
 - [chalk](https://www.npmjs.com/package/chalk)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [node-notifier](https://www.npmjs.com/package/node-notifier)
+- [typescript](https://www.npmjs.com/package/typescript)
 
 ---
 
