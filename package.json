@@ -6,17 +6,25 @@
   "author": "Schiriac Robert <schiriac.robert@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "app": "node app",
-    "dev": "nodemon app"
+    "build": "tsc",
+    "start": "node dist/app",
+    "app": "yarn run build; yarn run start",
+    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/app.js\""
   },
   "dependencies": {
     "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
     "gmail-send": "^1.2.14",
     "node-notifier": "^5.2.1",
-    "whois-to-json": "^1.0.4"
+    "whois-to-json": "^1.0.4",
+    "typescript": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "@types/chalk": "^2.2.0",
+    "@types/dotenv": "^4.0.3",
+    "@types/node-notifier": "^0.0.28",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "tslint": "^5.11.0"
   }
 }

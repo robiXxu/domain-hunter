@@ -3,8 +3,7 @@
     "title": "Domain Hunter",
     "message": "A domain is available! Check logs",
     "sound": true,
-    "wait": true,
-    "timeout": 9999
+    "wait": true
   },
   "email": {
     "user": "",
@@ -21,6 +20,5 @@
       "<a href='https://sso.godaddy.com/?realm=idp&path=%2Fproducts&app=account&checkAvail=1&tmskey=&domainToCheck=%DOMAIN%'> Buy %DOMAIN% on godaddy.com </a>",
       "<h4> Powered by <a href='https://github.com/robiXxu/domain-hunter'> domain-hunter </a> </h4>"
     ]
-  },
-  "domainsFile": "domains.json"
+  }
 }
