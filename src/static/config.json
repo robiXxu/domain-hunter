@@ -5,6 +5,7 @@
     "sound": true,
     "wait": true
   },
+  "intervalDelay": 60000,
   "email": {
     "user": "",
     "pass": "",

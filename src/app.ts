@@ -15,6 +15,8 @@ const envVars: string[] = [
   'DOMAIN_HUNTER_EMAIL_TO'
 ];
 
+const intervals: Map<string, number> = new Map();
+
 const notifyByEmail: boolean = envVars
   .filter((k: string) => process.env[k] && (process.env[k] as string).trim().length > 0)
   .length === envVars.length;
@@ -49,7 +51,7 @@ const notify = ( domain: string ) => {
   }
 };
 
-const checkDomain = ( domain: string) => {
+const checkDomain = ( domain: string ) => {
   whois( domain )
     .then(( response: any ) => response.DomainStatus)
     .then(( domainStatus: string | undefined ) => {
@@ -58,17 +60,19 @@ const checkDomain = ( domain: string) => {
           `[${chalk.bold.blue(domain)}] : ${chalk.bold.green('AVAILABLE')}`
         );
         notify(domain);
+        clearInterval(intervals.get(domain));
+        intervals.delete(domain);
       } else {
         console.log(
           `[${chalk.bold.blue(domain)}] : ${chalk.bold.gray(domainStatus)}`
         );
-        checkDomain(domain);
       }
     })
     .catch(( error: object ) => {
       console.error(`[${chalk.bold.red('ERROR')}]: ${JSON.stringify(error)}`);
-      checkDomain(domain);
     });
 };
 
-domains.forEach(domain => checkDomain(domain));
+domains.forEach(( domain: string ) => {
+  intervals.set(domain, setInterval(checkDomain, config.intervalDelay, domain));
+});
