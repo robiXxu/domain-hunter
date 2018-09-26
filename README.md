@@ -2,9 +2,9 @@
 #### A small app made to "hunt" domains that are about to be available.
 ---
 - [Demo](#demo)
-- [Up & Running](#up-&-running)
+- [Up & Running](#up--running)
 - [Configure Notification](#configure-notification)
-- [Up & Running Dev](#up-&-running-dev)
+- [Up & Running Dev](#up--running-dev)
 - [Dependencies](#dependencies)
 - [Todo](#todo)
 
